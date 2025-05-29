@@ -13,28 +13,29 @@ import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
  * - gives features to change it state (SVG) by request
  */
 contract MoodNft is ERC721 {
-    // Errors
+    /* Errors */
     error MoodNft__CantFlipMoodIfNotOwner();
 
-    // Type declarations
+    /* Type declarations */
     enum Mood {
         HAPPY,
         SAD
     }
 
-    // State variables
+    /* State variables */
     uint256 private s_tokecCounter;
     string private s_sadSvgImageUri;
     string private s_happySvgImageUri;
     mapping(uint256 => Mood) private s_tokenIdToMood;
 
-    // Functions
+    /* Functions */
     constructor(string memory _sadSvgImageUri, string memory _happySvgImageUri) ERC721("MoodNft", "MNT") {
         s_tokecCounter = 0;
         s_sadSvgImageUri = _sadSvgImageUri;
         s_happySvgImageUri = _happySvgImageUri;
     }
 
+    /* Public */
     function mintNft() public {
         s_tokenIdToMood[s_tokecCounter] = Mood.HAPPY;
         _safeMint(msg.sender, s_tokecCounter);
@@ -54,13 +55,13 @@ contract MoodNft is ERC721 {
         }
     }
 
-    // Internal & private view & pure functions
+    /* Internal & private view & pure functions */
 
     function _baseURI() internal pure override returns (string memory) {
         return "data:application/json;base64,";
     }
 
-    // External & public view & pure functions
+    /* External & public view & pure functions */
 
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
         string memory imageURI;
