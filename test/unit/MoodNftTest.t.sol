@@ -11,8 +11,8 @@ contract MoodNftTest is Test {
     string public HAPPY_SVG_URI = vm.readFile("./img/sad-blue.svg");
     string public SAD_SVG_URI = vm.readFile("./img/happy-blue.svg");
 
-    //string public constant HAPPY_SVG_URI ="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSI1MCAxMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciID4KICA8IS0tIEhlYWQgLS0+CiAgPHBhdGgKICAgIGQ9Ik03MCA3MCBRODAgMzAgMTEwIDQwIFExNDAgMzAgMTQwIDcwIFExMzAgOTAgMTEwIDk1IFE5MCA5NSA3MCA3MCBaIgogICAgZmlsbD0iIzkwYTRhZSIKICAgIHN0cm9rZT0iIzM0NDk1ZSIKICAgIHN0cm9rZS13aWR0aD0iMyIKICAvPgogIAogIDwhLS0gRWFycyAtLT4KICA8cG9seWdvbiBwb2ludHM9Ijc1LDUwIDg1LDE1IDk1LDUwIiBmaWxsPSIjMzQ0OTVlIiAvPgogIDxwb2x5Z29uIHBvaW50cz0iMTI1LDUwIDEzNSwxNSAxNDUsNTAiIGZpbGw9IiMzNDQ5NWUiIC8+CiAgCiAgPCEtLSBIYXBweSBFeWVzIC0tPgogIDxjaXJjbGUgY3g9Ijk1IiBjeT0iNjgiIHI9IjUiIGZpbGw9ImJsYWNrIiAvPgogIDxjaXJjbGUgY3g9IjEyNSIgY3k9IjY4IiByPSI1IiBmaWxsPSJibGFjayIgLz4KICAKICA8IS0tIE5vc2UgLS0+CiAgPGNpcmNsZSBjeD0iMTEwIiBjeT0iOTAiIHI9IjQiIGZpbGw9ImJsYWNrIiAvPgogIAogIDwhLS0gSGFwcHkgTW91dGggKHVwd2FyZCBjdXJ2ZSkgLS0+CiAgPHBhdGggZD0iTTEwMCA5NSBRMTEwIDExMCAxMjAgOTUiIHN0cm9rZT0iIzM0NDk1ZSIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiAvPgo8L3N2Zz4K";
-    //string public constant SAD_SVG_URI ="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSI1MCAxMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciID4KICA8IS0tIEhlYWQgLS0+CiAgPHBhdGgKICAgIGQ9Ik03MCA3MCBRODAgMzAgMTEwIDQwIFExNDAgMzAgMTQwIDcwIFExMzAgOTAgMTEwIDk1IFE5MCA5NSA3MCA3MCBaIgogICAgZmlsbD0iIzkwYTRhZSIKICAgIHN0cm9rZT0iIzM0NDk1ZSIKICAgIHN0cm9rZS13aWR0aD0iMyIKICAvPgogIAogIDwhLS0gRWFycyAtLT4KICA8cG9seWdvbiBwb2ludHM9Ijc1LDUwIDg1LDE1IDk1LDUwIiBmaWxsPSIjMzQ0OTVlIiAvPgogIDxwb2x5Z29uIHBvaW50cz0iMTI1LDUwIDEzNSwxNSAxNDUsNTAiIGZpbGw9IiMzNDQ5NWUiIC8+CiAgCiAgPCEtLSBTYWQgRXllcyAoZWxsaXB0aWNhbCwgc2xpZ2h0bHkgdGlsdGVkIGRvd253YXJkKSAtLT4KICA8ZWxsaXBzZSBjeD0iOTUiIGN5PSI3MiIgcng9IjUiIHJ5PSIzLjUiIGZpbGw9ImJsYWNrIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTUgOTUgNzIpIiAvPgogIDxlbGxpcHNlIGN4PSIxMjUiIGN5PSI3MiIgcng9IjUiIHJ5PSIzLjUiIGZpbGw9ImJsYWNrIiB0cmFuc2Zvcm09InJvdGF0ZSgxNSAxMjUgNzIpIiAvPgogIAogIDwhLS0gTm9zZSAtLT4KICA8Y2lyY2xlIGN4PSIxMTAiIGN5PSI5MCIgcj0iNCIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBTYWQgTW91dGggKGRvd253YXJkIGN1cnZlKSAtLT4KICA8cGF0aCBkPSJNMTAwIDEwNSBRMTEwIDk1IDEyMCAxMDUiIHN0cm9rZT0iIzM0NDk1ZSIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiAvPgo8L3N2Zz4K";
+    string public constant SAD_TOKEN_URI =
+        "data:application/json;base64,eyJuYW1lIjoiTW9vZE5mdCIsImRlc2NyaXB0aW9uIjoiQSBjb2xsZWN0aW9uIG9mIDEwMDAgQXVzdHJhbGlhbiBDYXR0bGUgRG9ncyBvciBzaW1wbHkgQmx1ZXMuIiwgImF0dHJpYnV0ZXMiOiBbeyJ0cmFpdF90eXBlIjogIm1vb2RpbmVzcyIsInZhbHVlIjogIjEwMCJ9XSwiaW1hZ2UiOiI8c3ZnIHZpZXdCb3g9IjUwIDEwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgPgogIDwhLS0gSGVhZCAtLT4KICA8cGF0aAogICAgZD0iTTcwIDcwIFE4MCAzMCAxMTAgNDAgUTE0MCAzMCAxNDAgNzAgUTEzMCA5MCAxMTAgOTUgUTkwIDk1IDcwIDcwIFoiCiAgICBmaWxsPSIjOTBhNGFlIgogICAgc3Ryb2tlPSIjMzQ0OTVlIgogICAgc3Ryb2tlLXdpZHRoPSIzIgogIC8+CiAgCiAgPCEtLSBFYXJzIC0tPgogIDxwb2x5Z29uIHBvaW50cz0iNzUsNTAgODUsMTUgOTUsNTAiIGZpbGw9IiMzNDQ5NWUiIC8+CiAgPHBvbHlnb24gcG9pbnRzPSIxMjUsNTAgMTM1LDE1IDE0NSw1MCIgZmlsbD0iIzM0NDk1ZSIgLz4KICAKICA8IS0tIFNhZCBFeWVzIChlbGxpcHRpY2FsLCBzbGlnaHRseSB0aWx0ZWQgZG93bndhcmQpIC0tPgogIDxlbGxpcHNlIGN4PSI5NSIgY3k9IjcyIiByeD0iNSIgcnk9IjMuNSIgZmlsbD0iYmxhY2siIHRyYW5zZm9ybT0icm90YXRlKC0xNSA5NSA3MikiIC8+CiAgPGVsbGlwc2UgY3g9IjEyNSIgY3k9IjcyIiByeD0iNSIgcnk9IjMuNSIgZmlsbD0iYmxhY2siIHRyYW5zZm9ybT0icm90YXRlKDE1IDEyNSA3MikiIC8+CiAgCiAgPCEtLSBOb3NlIC0tPgogIDxjaXJjbGUgY3g9IjExMCIgY3k9IjkwIiByPSI0IiBmaWxsPSJibGFjayIgLz4KICAKICA8IS0tIFNhZCBNb3V0aCAoZG93bndhcmQgY3VydmUpIC0tPgogIDxwYXRoIGQ9Ik0xMDAgMTA1IFExMTAgOTUgMTIwIDEwNSIgc3Ryb2tlPSIjMzQ0OTVlIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIC8+Cjwvc3ZnPgoifQ==";
 
     address public USER = makeAddr("user");
 
@@ -20,30 +20,54 @@ contract MoodNftTest is Test {
         moodNft = new MoodNft(SAD_SVG_URI, HAPPY_SVG_URI);
     }
 
+    /*//////////////////////////////////////////////////////////////
+                      DEPLOY MOODNFT UNIT TESTING
+    //////////////////////////////////////////////////////////////*/
+
     function testViewTokenURI() public {
+        // Arrange
         vm.prank(USER);
+
+        // Act
         moodNft.mintNft();
         console.log(moodNft.tokenURI(0));
+
+        // Assert
+        assertEq(moodNft.tokenURI(0), SAD_TOKEN_URI);
     }
 
     function testGetHappySVG() public view {
+        // Arrange / Act
         string memory happySvg = moodNft.getHappySVG();
+
+        // Assert
         assertEq(happySvg, HAPPY_SVG_URI, "Happy SVG URI should match");
     }
 
     function testGetSadSVG() public view {
+        // Arrange / Act
         string memory sadSvg = moodNft.getSadSVG();
+
+        // Assert
         assertEq(sadSvg, SAD_SVG_URI, "Sad SVG URI should match");
     }
 
     function testGetTokenCounter() public {
+        // Arrange
         uint256 initialCounter = moodNft.getTokenCounter();
-        assertEq(initialCounter, 0, "Initial token counter should be 0");
-
         vm.prank(USER);
-        moodNft.mintNft();
 
+        // Act
+        moodNft.mintNft();
         uint256 counterAfterMint = moodNft.getTokenCounter();
+
+        // Assert
+        assertEq(initialCounter, 0, "Initial token counter should be 0");
         assertEq(counterAfterMint, 1, "Token counter should be 1 after minting");
     }
 }
+
+// AAA:
+// Arrange
+// Act
+// Assert

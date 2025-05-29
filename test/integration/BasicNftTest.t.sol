@@ -18,6 +18,10 @@ contract BasicNftTes is Test {
         basicNft = deployBasicNft.run();
     }
 
+    /*//////////////////////////////////////////////////////////////
+                         BASIC NFT INTEGRATION
+    //////////////////////////////////////////////////////////////*/
+
     function testNameIsCorrect() public view {
         string memory expextedName = "Dogie";
         string memory actualName = basicNft.name();

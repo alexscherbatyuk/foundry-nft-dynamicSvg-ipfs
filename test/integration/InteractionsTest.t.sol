@@ -14,7 +14,15 @@ contract InteractionsBasicNftTest is Test {
         mintBasicNft = new MintBasicNft();
     }
 
+    /*//////////////////////////////////////////////////////////////
+                            INTERACTION TEST
+    //////////////////////////////////////////////////////////////*/
+
     function testMintNftOnContract() public {
+        // Arrange / Act
         mintBasicNft.mintNftOnContract(address(basicNft));
+
+        // Assert
+        assert(basicNft.getTokenCounter() == 1);
     }
 }
