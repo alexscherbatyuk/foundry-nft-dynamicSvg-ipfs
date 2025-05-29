@@ -1,0 +1,35 @@
+{
+    "attributes": [
+      {
+        "trait_type": "Background",
+        "value": "Pink"
+      },
+      {
+        "trait_type": "Skin",
+        "value": "Dark Gray"
+      },
+      {
+        "trait_type": "Clothes",
+        "value": "Red bandana"
+      },
+      {
+        "trait_type": "Face",
+        "value": "Gray with a tongue out"
+      },
+      {
+        "trait_type": "Paws",
+        "value": "Orange"
+      },
+      {
+        "trait_type": "Tail",
+        "value": "Orange"
+      },
+      {
+        "trait_type": "Head",
+        "value": "Dark Gray, light gray and orange"
+      }
+    ],
+    "description": "A collection of 1000 Australian Cattle Dogs or simply Blues.",
+    "image": "https://ipfs.io/ipfs/QmV9PMLa9ewdWzGn5Hzkch5ddymtXWBHFJHmPyB6dFXWtB?filename=0-blue.png",
+    "name": "Blue #0"
+  }
