@@ -9,7 +9,7 @@ import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
  * @author Alexander Scherbatyuk
  * @notice This contract is a standard ERC721 token that:
  * - utilizes SVG,
- * - stores data on-chain, making this type of NFT truly decentrlized,
+ * - stores data on-chain, making this type of NFT truly decentralized,
  * - gives features to change it state (SVG) by request
  */
 contract MoodNft is ERC721 {
@@ -23,23 +23,23 @@ contract MoodNft is ERC721 {
     }
 
     /* State variables */
-    uint256 private s_tokecCounter;
+    uint256 private s_tokenCounter;
     string private s_sadSvgImageUri;
     string private s_happySvgImageUri;
     mapping(uint256 => Mood) private s_tokenIdToMood;
 
     /* Functions */
     constructor(string memory _sadSvgImageUri, string memory _happySvgImageUri) ERC721("MoodNft", "MNT") {
-        s_tokecCounter = 0;
+        s_tokenCounter = 0;
         s_sadSvgImageUri = _sadSvgImageUri;
         s_happySvgImageUri = _happySvgImageUri;
     }
 
     /* Public */
     function mintNft() public {
-        s_tokenIdToMood[s_tokecCounter] = Mood.HAPPY;
-        _safeMint(msg.sender, s_tokecCounter);
-        s_tokecCounter++;
+        s_tokenIdToMood[s_tokenCounter] = Mood.HAPPY;
+        _safeMint(msg.sender, s_tokenCounter);
+        s_tokenCounter++;
     }
 
     function flipMood(uint256 _tokenId) public {
@@ -100,7 +100,7 @@ contract MoodNft is ERC721 {
     }
 
     function getTokenCounter() external view returns (uint256) {
-        return s_tokecCounter;
+        return s_tokenCounter;
     }
 }
 
